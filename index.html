@@ -104,7 +104,7 @@ var count = function (sequence) {
 document.querySelector('textarea').addEventListener('keyup', function(ev){
 
   if(ev.which == 27){
-    var tally = count(this.value.split(' ')); 
+    var tally = count(this.value.trim().split(' ')); 
     var barchart = new Barchart(tally, document.querySelector('#chart'));
     barchart.render();
   }
