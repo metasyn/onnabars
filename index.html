@@ -90,6 +90,9 @@ Barchart.prototype.drawBar = function(value){
 //var barchart = new Barchart(data, document.querySelector('#chart'))
 //barchart.render();
 
+var tokenize = function (text) {
+  return text.trim().split(' ');
+}
 
 var count = function (sequence) {
   return sequence.reduce(function (tally, item) {
@@ -104,7 +107,7 @@ var count = function (sequence) {
 document.querySelector('textarea').addEventListener('keyup', function(ev){
 
   if(ev.which == 27){
-    var tally = count(this.value.trim().split(' ')); 
+    var tally = count(tokenize(this.value)); 
     var barchart = new Barchart(tally, document.querySelector('#chart'));
     barchart.render();
   }
