@@ -91,7 +91,7 @@ Barchart.prototype.drawBar = function(value){
 //barchart.render();
 
 var tokenize = function (text) {
-  return text.trim().split(' ');
+  return text.trim().split(/[ ]+/);
 }
 
 var count = function (sequence) {
