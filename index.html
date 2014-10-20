@@ -1,19 +1,57 @@
 <!doctype html>
 <meta charset=utf-8>
 <title>barchart</title>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+</head>
+<html>
 
+<h1>onnabars</h1>
+	<h3>type a few words in the box on the right and press escape. or click <a class="btn">here</a> <br> <a href="http://i2.kym-cdn.com/photos/images/original/000/185/168/misc-jackie-chan-l.png">MIND. BLOWN.</a>
+	<br></h3>
+			<p>
+			Basically the idea is that we're using simple <a href="http://vanilla-js.com/">Vanilla JS</a> to construct
+			a <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expression</a> based tokenizer, then visualize it with a flexbox. Why ? Because Wugbot. What's a <a href="http://wugbot.org">Wugbot</a> you ask? Oh dang, now y'all are in <a href="http://complingftw.github.io/">trouble</a>. To be honest, were not so sure either. But we do know Wugbot is making linguistics EVEN NERDIER. 
+			</p>
 
-<p>type a few words in the box on the right and press escape.
-<p>MIND. BLOWN.
-
-<main>
-<div id=chart></div>
-
-<textarea>
-</textarea>
-</main>
+		
+<body>
+	<main>
+	<div id=chart></div>
+	
+	<textarea>
+	colorless green ideas sleep furiously
+	</textarea>
+	
+	</main>
+	
+	<!--Bro how'd you make this-->
+	<h3> Curious about how this was made?</h3>
+	<p> Check out the <a href="https://github.com/ComplingFTW/onnabars">source</a> here on Github !
+	
+</body>
 
 <style>
+html {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+a:link{
+	color: #006BB2;
+}
+
+a:visited{
+	color: #4C8066;
+}
+
+a:hover{
+	color: #FF5050;
+}
+
+body {
+	margin: 1%;
+}
+
 main { 
   display:flex;
   flex-flow: row wrap;
@@ -21,17 +59,22 @@ main {
 
 textarea{
   flex: 1;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  background:linear-gradient(to bottom, #99FFCC, #FFFFFF)
 }
 
 #chart {
   flex: 1;
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 12px;
   width: 500px;
   height: 500px;
   border: 1px solid black;
-  align-items: flex-end; 
   justify-content: space-around;
+  background:linear-gradient(to bottom, #8dd2d9 , #FFFFFF)
 }
 
 .bar {
@@ -39,8 +82,26 @@ textarea{
   background-color:maroon;
   text-align:center;
   border-right: 1px solid white;
-  color:gray;
+  color:white;
 }
+
+.btn {
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #3498db;
+  padding: 8px 10px 8px 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #7fdb9f;
+  text-decoration: none;
+}
+
 </style>
 
 
@@ -83,7 +144,7 @@ Barchart.prototype.drawBar = function(value){
   var bar = document.createElement('div');
   bar.classList.add('bar');
   var percentage = (value / (this.max + 10)) * 100;
-  bar.style.height = percentage + '%'  ; 
+  bar.style.width = percentage + '%'  ; 
   return bar;
 }
 
@@ -113,4 +174,7 @@ document.querySelector('textarea').addEventListener('keyup', function(ev){
   }
 
 })
+
+
 </script>
+<html>
